@@ -1,0 +1,5 @@
+<div>
+  <% @shops.each do |shop| %>
+    <%= link_to shop.name, shop_path(shop) %>
+  <% end %>
+</div>
