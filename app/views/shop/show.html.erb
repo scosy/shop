@@ -1,5 +1,5 @@
 <h1><%= @shop.name %></h1>
 <div style="display: flex;">
   <h3>Horaires:</h3>
-  <%= render 'shop' %>
+  <%= render 'shop', shop_hours: @shop_hours, days: @days, shop_hour_days: @shop_hour_days %>
 </div>

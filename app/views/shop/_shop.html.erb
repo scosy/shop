@@ -1,19 +1,20 @@
 <div style="display: flex; flex-direction: column;">
-<% @days.each_with_index do |day, index| %>
+<% days.each_with_index do |day, index| %>
 
-  <div style="<%= 'font-weight: bold;' if Time.now.strftime('%w').to_i == day %>"><%= I18n.t('date.day_names')[day].capitalize %>
-  <% @shop_hours.each do |shop_hour| %>
+  <!-- Apply bold style if it's the first day the array -->
+  <div style="<%= 'font-weight: bold;' if index.zero? %>"><%= I18n.t('date.day_names')[day] %>
+  <% shop_hours.each do |shop_hour| %>
 
     <% if shop_hour.day_of_week == Date::DAYNAMES[day].downcase %>
-        <%= "#{shop_hour.opens_at.strftime('%H:%M')} - #{shop_hour.closes_at.strftime('%H:%M')}" %>
+        <%= "#{shop_hour.opens_at.strftime('%H:%M')}-#{shop_hour.closes_at.strftime('%H:%M')}" %>
     <% end %>
-
   <% end %>
-    <% if !(@shop_hour_days.include?(Date::DAYNAMES[day].downcase)) %>
-      <%= I18n.t('shop_closed').capitalize %>
-    <% end %>
-  </div>
 
+  <!-- If no shop hours are saved for a given day, it is closed -->
+  <% if !(shop_hour_days.include?(Date::DAYNAMES[day].downcase)) %>
+    <%= I18n.t('shop_closed') %>
+  <% end %>
+  </div>
 
 <% end %>
 </div>

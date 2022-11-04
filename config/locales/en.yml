@@ -16,4 +16,5 @@ en:
     - Thursday
     - Friday
     - Saturday
-  shop_closed: fermé
+  shop_closed: Closed
+  shop_opening_hours: Hours

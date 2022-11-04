@@ -8,12 +8,14 @@ class ShopHour < ApplicationRecord
   # Check if new hours overlap with exisiting hours
   validate :overlapping_hours?, unless: -> { opens_at.blank? || closes_at.blank? }
 
+  scope :in_shop, ->(shop_id) { where(shop_id) }
+  scope :in_day, ->(day_of_week) { where(day_of_week) }
   scope :in_range, ->(range) { where('opens_at BETWEEN ? AND ?', range.first, range.last) }
   scope :exclude_self, ->(id) { where.not(id) }
 
   def overlapping_hours?
     range = Range.new(opens_at, closes_at)
-    overlaps = ShopHour.exclude_self(id: id).in_range(range)
+    overlaps = ShopHour.in_shop(shop_id: shop_id).in_day(day_of_week: day_of_week).exclude_self(id: id).in_range(range)
     overlap_error unless overlaps.empty?
   end
 

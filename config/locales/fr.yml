@@ -1,19 +1,20 @@
 fr:
   date:
     abbr_day_names:
-    - dim
-    - lun
-    - mar
-    - mer
-    - jeu
-    - ven
-    - sam
+    - Dim
+    - Lun
+    - Mar
+    - Mer
+    - Jeu
+    - Ven
+    - Sam
     day_names:
-    - dimanche
-    - lundi
-    - mardi
-    - mercredi
-    - jeudi
-    - vendredi
-    - samedi
-  shop_closed: fermé
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
+  shop_closed: Fermé
+  shop_opening_hours: Horaires
