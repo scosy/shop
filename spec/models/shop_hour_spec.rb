@@ -31,9 +31,15 @@ RSpec.describe ShopHour, type: :model do
       expect(shop_hour).not_to be_valid
     end
 
-    it 'is not valid if opening_hours overlap' do
-      FactoryBot.create(:shop_hour)
-      expect(shop_hour).not_to be_valid
+    context 'when a shop has multiple hours' do
+      it 'is not valid if opening_hours overlap' do
+        @shop_hour = ShopHour.create(shop_id: shop_hour.shop_id,
+                                      day_of_week: shop_hour.day_of_week,
+                                      opens_at: shop_hour.opens_at,
+                                      closes_at: shop_hour.closes_at,
+                                    )
+        expect(@shop_hour).not_to be_valid
+      end
     end
   end
 end
