@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "shop#index"
+  
+  resources :shop, only: :show
 end
