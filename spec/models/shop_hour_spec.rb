@@ -31,6 +31,12 @@ RSpec.describe ShopHour, type: :model do
       expect(shop_hour).not_to be_valid
     end
 
+    it "is not valid if closing hour happens before opening hour" do
+      shop_hour.opens_at = "20:00:00"
+      shop_hour.closes_at = "08:00:00"
+      expect(shop_hour).not_to be_valid
+    end
+
     context 'when a shop has multiple hours' do
       it 'is not valid if opening_hours overlap' do
         @shop_hour = ShopHour.create(shop_id: shop_hour.shop_id,
