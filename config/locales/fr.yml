@@ -18,3 +18,13 @@ fr:
     - Samedi
   shop_closed: Fermé
   shop_opening_hours: Horaires
+  errors:
+    messages:
+      record_invalid: 'La validation a échoué : %{errors}'
+      restrict_dependent_destroy:
+        has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+          dépendant(e) existe
+        has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+          dépendants existent
+      blank: Doit être rempli(e)
+      greater_than: Doit arriver après Opens at
