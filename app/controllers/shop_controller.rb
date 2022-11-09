@@ -9,6 +9,6 @@ class ShopController < ApplicationController
     @shop_hour_days = @shop_hours.pluck(:day_of_week)
     @days = [*0..6]
     # Sort days array to have today's day first
-    @days.rotate! until @days.first == Time.now.strftime('%w').to_i
+    @days.rotate! until @days.first == Time.now.wday
   end
 end
