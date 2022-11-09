@@ -16,6 +16,9 @@ fr:
     - Jeudi
     - Vendredi
     - Samedi
+  time:
+    formats:
+      hours: "%H:%M"
   shop_closed: Fermé
   shop_opening_hours: Horaires
   errors:

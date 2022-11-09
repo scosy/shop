@@ -16,6 +16,9 @@ en:
     - Thursday
     - Friday
     - Saturday
+  time:
+    formats: 
+      hours: "%l:%M %p"
   shop_closed: Closed
   shop_opening_hours: Hours
   errors:

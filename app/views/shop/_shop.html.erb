@@ -1,12 +1,12 @@
 <div style="display: flex; flex-direction: column;">
 <% days.each_with_index do |day, index| %>
 
-  <!-- Apply bold style if it's the first day the array -->
-  <div style="<%= 'font-weight: bold;' if index.zero? %>"><%= I18n.t('date.day_names')[day] %>
+  <!-- Apply bold style if it's the first day of the array -->
+  <div style="<%= 'font-weight: bold;' if index.zero? %>"><%= t('date.day_names')[day] %>
   <% shop_hours.each do |shop_hour| %>
 
     <% if shop_hour.day_of_week == Date::DAYNAMES[day].downcase %>
-        <%= "#{shop_hour.opens_at.strftime('%H:%M')}-#{shop_hour.closes_at.strftime('%H:%M')}" %>
+        <%= "#{l(shop_hour.opens_at, format: :hours)}-#{l(shop_hour.closes_at, format: :hours)}" %>
     <% end %>
   <% end %>
 

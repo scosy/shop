@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  root "shop#index"
+  # config/routes.rb
+  scope "/:locale" do
+    resources :shop, only: :show
+  end
   
-  resources :shop, only: :show
+  # Defines the root path route ("/")
+  root "shop#index"  
 end
