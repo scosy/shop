@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   scope "/:locale" do
     resources :shop, only: :show
   end
-  
+
   # Defines the root path route ("/")
-  root "shop#index"  
+  root "shop#index"
 end

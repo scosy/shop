@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :shop do
-    name { 'Shop' }
+    name { "Shop" }
   end
 
   factory :shop_hour do

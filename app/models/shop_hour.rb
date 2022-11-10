@@ -10,16 +10,16 @@ class ShopHour < ApplicationRecord
 
   scope :in_shop, ->(shop_id) { where(shop_id) }
   scope :in_day, ->(day_of_week) { where(day_of_week) }
-  scope :in_range, ->(range) { where('opens_at BETWEEN ? AND ?', range.first, range.last) }
+  scope :in_range, ->(range) { where("opens_at BETWEEN ? AND ?", range.first, range.last) }
   scope :exclude_self, ->(id) { where.not(id) }
 
   def overlapping_hours?
     range = Range.new(opens_at, closes_at)
-    overlaps = ShopHour.in_shop(shop_id: shop_id).in_day(day_of_week: day_of_week).exclude_self(id: id).in_range(range)
+    overlaps = ShopHour.in_shop(shop_id:).in_day(day_of_week:).exclude_self(id:).in_range(range)
     overlap_error unless overlaps.empty?
   end
 
   def overlap_error
-    errors.add(:overlap_error, 'There are already opening hours in this range')
+    errors.add(:overlap_error, "There are already opening hours in this range")
   end
 end
