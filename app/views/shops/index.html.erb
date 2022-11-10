@@ -2,4 +2,6 @@
   <% @shops.each do |shop| %>
     <%= link_to shop.name, shop_path(shop) %>
   <% end %>
+
+  <%=  link_to t('new'), new_shop_path %>
 </div>

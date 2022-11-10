@@ -31,3 +31,16 @@ fr:
           dépendants existent
       blank: Doit être rempli(e)
       greater_than: Doit arriver après Opens at
+  back: Retour
+  new: Nouveau
+  helpers:
+    label:
+      shop:
+       name: Nom
+    submit:
+      create: Créer un(e) %{model}
+      submit: Enregistrer ce(tte) %{model}
+  activerecord:
+    models:
+      shop: Magasin
+      shop_hour: Horaires

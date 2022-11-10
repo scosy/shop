@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   # config/routes.rb
   scope "/:locale" do
-    resources :shop, only: :show
+    resources :shops, only: %i[ create new show ]
   end
 
   # Defines the root path route ("/")
-  root "shop#index"
+  root "shops#index"
 end

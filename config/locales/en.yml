@@ -29,3 +29,16 @@ en:
         has_many: Cannot delete record because dependent %{record} exist
       blank: Cannot be blank
       greater_than: must be greater_than Opens at
+  back: Back
+  new: New
+  helpers:
+    label:
+      shop:
+       name: Name
+    submit:
+      create: Create this %{model}
+      submit: Save this %{model}
+  activerecord:
+    models:
+      shop: Shop
+      shop_hour: Hours
