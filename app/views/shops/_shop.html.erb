@@ -1,21 +1,19 @@
 <div style="display: flex; flex-direction: column;">
-<% days.each_with_index do |day, index| %>
+  <% days.each_with_index do |day, index| %>
 
-  <!-- Apply bold style if it's the first day of the array -->
-  <div style="<%= 'font-weight: bold;' if index.zero? %>">
-    <%= "#{t('date.day_names')[day]}:" %>
-
-  <!-- If no shop hours are saved for a given day, it is closed -->
-  <% unless (shop_hour_days.include?(Date::DAYNAMES[day].downcase)) %>
-    <%= I18n.t('shop_closed') %>
-  <% end %>
-
-  <% shop_hours.each do |shop_hour| %>
-
-    <% if shop_hour.day_of_week == Date::DAYNAMES[day].downcase %>
+    <!-- Apply bold style if it's the first day of the array -->
+    <div style="<%= 'font-weight: bold;' if index.zero? %>">
+      <%= "#{t('date.day_names')[day]}:" %>
+    
+    <!-- If no shop hours are saved for a given day, it is closed -->
+    <% unless (shop_hours.include?(day)) %>
+      <%= I18n.t('shop_closed') %>
+    <% else %>
+      <% shop_hours[day].each do |shop_hour| %>
         <%= "#{l(shop_hour.opens_at, format: :hours)}-#{l(shop_hour.closes_at, format: :hours)}" %>
+      <% end %>
     <% end %>
+  
+    </div>
   <% end %>
-  </div>
-<% end %>
 </div>

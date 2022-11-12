@@ -6,11 +6,8 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop_hours = @shop.shop_hours
-    @shop_hour_days = @shop_hours.pluck(:day_of_week)
-    @days = [*0..6]
-    # Sort days  array to have today's day first
-    @days.rotate! until @days.first == Time.now.wday
+    @days = [*0..6].rotate(Time.now.wday)
+    @shop_hours = @shop.shop_hours.group_by { |s_h| Date.strptime(s_h.day_of_week, '%A').wday }
   end
 
   def new
