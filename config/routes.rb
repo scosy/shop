@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   # config/routes.rb
   scope "/:locale" do
-    resources :shops, only: %i[ create new show ]
+    resources :shops, only: %i[create new show] do
+      resources :shop_hours, only: %i[create new], module: :shops
+    end
   end
 
   # Defines the root path route ("/")
