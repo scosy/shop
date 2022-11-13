@@ -31,16 +31,22 @@ fr:
           dépendants existent
       blank: Doit être rempli(e)
       greater_than: Doit arriver après Opens at
-  back: Retour
-  new: Nouveau
+  links:
+    back: Retour
+    new: Nouveau
+    add_hours: Ajouter des horaires
   helpers:
     label:
       shop:
        name: Nom
+      shop_hour:
+        day_of_week: Jour
+        opens_at: Ouverture
+        closes_at: Fermeture
     submit:
       create: Créer un(e) %{model}
       submit: Enregistrer ce(tte) %{model}
   activerecord:
     models:
       shop: Magasin
-      shop_hour: Horaires
+      shop_hour: Horaire
